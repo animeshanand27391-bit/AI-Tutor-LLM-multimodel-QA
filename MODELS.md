@@ -17,25 +17,34 @@
 
 ### Ollama / Llama 3.2 — `llama3.2`
 - **Type:** Local (runs on your machine)
-- **Strengths:** 100% free, no rate limits, private
+- **Strengths:** 100% free, no rate limits, fully private
 - **Response syntax:** `response["message"]["content"]`
 - **Docs:** https://ollama.com
 
+### DeepSeek — `deepseek-chat`
+- **Type:** Cloud API (via OpenAI-compatible wrapper)
+- **Strengths:** Strong reasoning, very low cost
+- **Response syntax:** `response.choices[0].message.content`
+- **Docs:** https://platform.deepseek.com/docs
+
+---
+
 ## Response Syntax Cheat Sheet
 
-| Provider   | Client call                          | Get text                            |
-|------------|--------------------------------------|-------------------------------------|
-| Anthropic  | `client.messages.create(...)`        | `response.content[0].text`          |
-| Gemini     | `model.generate_content(...)`        | `response.text`                     |
-| Ollama     | `ollama_client.chat(...)`            | `response["message"]["content"]`    |
-| OpenAI     | `client.chat.completions.create(...)`| `response.choices[0].message.content` |
+| Provider   | Client call                           | Get text                               |
+|------------|---------------------------------------|----------------------------------------|
+| Anthropic  | `client.messages.create(...)`         | `response.content[0].text`             |
+| Gemini     | `model.generate_content(...)`         | `response.text`                        |
+| Ollama     | `ollama_client.chat(...)`             | `response["message"]["content"]`       |
+| DeepSeek   | `client.chat.completions.create(...)` | `response.choices[0].message.content`  |
 
-## Free Tier Comparison
+---
+
+## Cost & Availability Comparison
 
 | Model | Free? | Rate Limit | Best For |
 |---|---|---|---|
-| `claude-haiku-4-5` | Cheapest Claude | Per token | Fast, cheap tasks |
-| `gemini-2.0-flash-lite` | ✅ Free | 30 req/min | General use |
-| `gemini-1.5-flash` | ✅ Free | 15 req/min | Reliable fallback |
-| `llama3.2` (Ollama) | ✅ 100% free | No limit | Local, private |
-| `deepseek-r1` (Ollama) | ✅ 100% free | No limit | Reasoning tasks |
+| `claude-sonnet-4-6` | Pay per token | Generous | Reasoning, code |
+| `gemini-2.0-flash-lite` | Free tier | 30 req/min | General use |
+| `llama3.2` (Ollama) | 100% free | No limit | Local, private |
+| `deepseek-chat` (Cloud) | Pay per token (cheap) | Per plan | Cost-efficient reasoning |

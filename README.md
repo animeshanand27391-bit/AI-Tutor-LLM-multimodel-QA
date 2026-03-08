@@ -1,35 +1,37 @@
-# 🤖 LLM Multi-Model Q&A Tool
+# LLM Multi-Model Q&A Tool
 
-> Ask one question. Get answers from Claude, Gemini, and Llama — side by side.
+> Ask one question. Get answers from Claude, Gemini, Llama, and DeepSeek — side by side.
 
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Anthropic](https://img.shields.io/badge/Claude-Sonnet_4.6-D97757?style=flat-square&logo=anthropic&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Gemini-2.0_Flash-4285F4?style=flat-square&logo=google&logoColor=white)
 ![Ollama](https://img.shields.io/badge/Ollama-Llama_3.2-000000?style=flat-square&logo=ollama&logoColor=white)
+![DeepSeek](https://img.shields.io/badge/DeepSeek-Chat-6B4FBB?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 ---
 
-## 🧠 What This Does
+## What This Does
 
-This tool lets you send a technical question to **three LLMs simultaneously** and compare their responses:
+Send a technical question to **four LLMs simultaneously** and compare their responses:
 
 | Model | Provider | Cost |
 |---|---|---|
 | `claude-sonnet-4-6` | Anthropic | Pay per token |
 | `gemini-2.0-flash-lite` | Google | Free tier available |
 | `llama3.2` | Ollama (local) | 100% free |
+| `deepseek-chat` | DeepSeek | Pay per token (very cheap) |
 
 Built as part of a hands-on journey into LLM engineering — learning how different models think, respond, and reason.
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/animeshanand27391-bit/llm-multimodel-qa.git
-cd llm-multimodel-qa
+git clone https://github.com/animeshanand27391-bit/AI-Tutor-LLM-multimodel-QA.git
+cd AI-Tutor-LLM-multimodel-QA
 ```
 
 ### 2. Set up your environment
@@ -61,10 +63,10 @@ jupyter notebook notebooks/week1_EXERCISE.ipynb
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-llm-multimodel-qa/
+AI-Tutor-LLM-multimodel-QA/
 ├── src/
 │   ├── week1_exercise.py     # Main multi-model Q&A script
 │   ├── models.py             # Model client wrappers
@@ -73,30 +75,32 @@ llm-multimodel-qa/
 │   └── week1_EXERCISE.ipynb  # Interactive Jupyter version
 ├── tests/
 │   └── test_models.py        # Unit tests
-├── docs/
-│   ├── SETUP.md              # Detailed setup guide
-│   └── MODELS.md             # Model comparison & notes
+├── .github/
+│   └── workflows/
+│       └── ci.yml            # GitHub Actions CI
 ├── .env.example              # API key template
 ├── .gitignore                # Ignores secrets & cache
+├── MODELS.md                 # Model comparison & notes
+├── SETUP.md                  # Detailed setup guide
 ├── requirements.txt          # Python dependencies
 └── pyproject.toml            # Project metadata
 ```
 
 ---
 
-## 🔑 API Keys Needed
+## API Keys Needed
 
 | Key | Where to get it | Required? |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | [console.anthropic.com](https://console.anthropic.com) | ✅ Yes |
-| `GOOGLE_API_KEY` | [aistudio.google.com](https://aistudio.google.com) | ⚡ Optional |
-| `OPENAI_API_KEY` | [platform.openai.com](https://platform.openai.com) | ⚡ Optional |
+| `ANTHROPIC_API_KEY` | [console.anthropic.com](https://console.anthropic.com) | Yes |
+| `GOOGLE_API_KEY` | [aistudio.google.com](https://aistudio.google.com) | Optional |
+| `DEEPSEEK_API_KEY` | [platform.deepseek.com](https://platform.deepseek.com) | Optional |
 
 Ollama runs **100% locally** — no API key needed.
 
 ---
 
-## 💡 Example Output
+## Example Output
 
 ```
 Question:
@@ -118,22 +122,27 @@ The expression combines a set comprehension with yield from...
   Ollama (llama3.2)
 ------------------------------------------------------------
 This is a Python generator expression that...
+
+------------------------------------------------------------
+  DeepSeek (deepseek-chat)
+------------------------------------------------------------
+This yields unique, non-null authors from the books list...
 ```
 
 ---
 
-## 🛣️ Roadmap
+## Roadmap
 
-- [x] Multi-model Q&A (Claude + Gemini + Llama)
+- [x] Multi-model Q&A (Claude + Gemini + Llama + DeepSeek)
 - [ ] Streaming responses
 - [ ] Side-by-side web UI (Gradio / Streamlit)
-- [ ] Add DeepSeek + Groq support
+- [ ] Add Groq support
 - [ ] Evaluation framework — score model responses
 - [ ] RAG pipeline integration
 
 ---
 
-## 🤝 About
+## About
 
 Built by **Animesh Anand** — Sr. Security Engineer entering the AI/LLM space.
 
@@ -142,6 +151,6 @@ Built by **Animesh Anand** — Sr. Security Engineer entering the AI/LLM space.
 
 ---
 
-## 📄 License
+## License
 
-MIT — do whatever you want with it. Just don't forget to star the repo. ⭐
+MIT — see [LICENSE](LICENSE) for details.

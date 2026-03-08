@@ -1,13 +1,13 @@
 [project]
 name            = "llm-multimodel-qa"
 version         = "0.1.0"
-description     = "Ask a question. Compare answers from Claude, Gemini, and Llama side by side."
+description     = "Ask a question. Compare answers from Claude, Gemini, Llama, and DeepSeek side by side."
 readme          = "README.md"
 requires-python = ">=3.12"
-license         = { text = "MIT" }
+license         = { file = "LICENSE" }
 authors         = [{ name = "Animesh Anand", email = "animesh.anand27391@gmail.com" }]
 
-keywords = ["llm", "anthropic", "gemini", "ollama", "ai", "multi-model"]
+keywords = ["llm", "anthropic", "gemini", "ollama", "deepseek", "ai", "multi-model"]
 
 dependencies = [
     "anthropic>=0.40.0",
@@ -22,7 +22,7 @@ notebook = ["jupyter>=1.0.0", "ipython>=8.0.0"]
 dev      = ["pytest>=8.0.0", "black>=24.0.0", "ruff>=0.4.0"]
 
 [project.urls]
-Homepage   = "https://github.com/animeshanand27391-bit/llm-multimodel-qa"
+Homepage   = "https://github.com/animeshanand27391-bit/AI-Tutor-LLM-multimodel-QA"
 LinkedIn   = "https://linkedin.com/in/animesh-anand27"
 
 [tool.black]
@@ -30,4 +30,6 @@ line-length = 100
 
 [tool.ruff]
 line-length = 100
-select      = ["E", "F", "I"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
